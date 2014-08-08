@@ -251,13 +251,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
     ro.qualcomm.perf.cores_online=2 \
+<<<<<<< HEAD
     debug.composition.type=dyn \
     qemu.hw.mainkeys=1 \
     view.scroll_friction=1 \
     ro.min_pointer_dur=8 \
     ro.min_fling_velocity=8000 \
     ro.max_fling_velocity=16000
+=======
     ro.telephony.call_ring.multiple=0
+>>>>>>> 769f46b7d1d375c816e9bff1c9fa0e11ea544ccf
 
 # Permissions
 PRODUCT_COPY_FILES += \
