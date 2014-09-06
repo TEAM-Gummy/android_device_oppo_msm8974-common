@@ -73,7 +73,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     av.offload.enable=true \
     av.streaming.offload.enable=true \
     use.voice.path.for.pcm.voip=true \
-    audio.offload.multiple.enabled=true \
+    audio.offload.multiple.enabled=false \
     audio.offload.gapless.enabled=true \
     qcom.hw.aac.encoder=true \
     tunnel.audio.encode=true \
@@ -171,7 +171,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal config
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf
+    $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine-8974.conf
 
 # Torch
 PRODUCT_PACKAGES += \
@@ -207,8 +207,9 @@ PRODUCT_PACKAGES += \
 
 # ANT+
 PRODUCT_PACKAGES += \
-    libantradio \
-    AntHalService
+    AntHalService \
+    com.dsi.ant.antradio_library \
+    libantradio
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -249,16 +250,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnGsmDevice=1 \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
-    ro.qualcomm.perf.cores_online=2 \
+    ro.qualcomm.perf.cores_online=1 \
     debug.composition.type=dyn \
     qemu.hw.mainkeys=1 \
     view.scroll_friction=1 \
     ro.min_pointer_dur=8 \
     ro.min_fling_velocity=8000 \
     ro.max_fling_velocity=16000
+    ro.telephony.call_ring.multiple=0
 
 # Permissions
 PRODUCT_COPY_FILES += \
+    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
